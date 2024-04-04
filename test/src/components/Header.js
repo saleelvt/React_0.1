@@ -1,9 +1,19 @@
-function Header(props){
 
-    return(
+import { Component  } from "react";
 
-<h1> saleel is a good boy  { props.data}</h1>
-    )
+class Header extends Component{
+
+    render(){
+        return (
+            <div className="div">
+                <h1>saleelis a good boiy {this.props.data}</h1>
+                <h1>saleel is a good boiy </h1>
+                
+            </div>
+        )
+    }
+
+
 }
 
 export default Header
