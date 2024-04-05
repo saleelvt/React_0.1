@@ -2,7 +2,7 @@ import React from "react";
 
 function Profile (){
     return (
-        <h1> Profile</h1>
+        <h1>  This is my  Profile Section </h1>
     )
 }
 export default Profile

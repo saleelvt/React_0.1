@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
   
 import About from './components/about';  
 import Profile from './components/profile';
@@ -8,26 +8,66 @@ import Header from './components/Header';
 // import Like from './components/like' 
 import Todolist from './todolist'   
 import './App.css'
+import Child from './components/child';
+import Form from './components/form';
+function App () {
+ 
+  const [dataFrom,setDataFrom]= useState('')
+const handleChildData=(ata)=> {
+      setDataFrom(ata) 
+
+}
+return (
+  <div>
+    <h1>This data from child: {dataFrom} </h1>
+
+    <Child sendDataToParent={handleChildData}/>
 
 
-
-
-
-
-function App() {
-  
-
-  return (
-
-    <Todolist/>
-
+    {/* < Form/> */}
+  </div>
 )
 
-             
 
 
 
-              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // const [dataFromChild,setDataFromChild]=useState('')
+
+  // const handleDataFromChild=(data)=>{
+  //   setDataFromChild(data)
+  // }
+
+  // return (
+  //   <React.Fragment>
+
+  //   <h1> This data from child :{dataFromChild} </h1>
+
+  //   <Child  sendDataToParent={handleDataFromChild}/>
+
+
+  //   </React.Fragment>
+  
+
+}
+
+
+export default App;
 
 
 
@@ -60,8 +100,37 @@ function App() {
 
 
 
+// routing with about and profitl,.e 
 
 
+// function App() {
+//   const [state,setState]=useState('')
+  
+//   let components
+//   if(state==='About'){
+//     components= <About/>
+//   }
+//   if(state==='Profile'){
+//     components=<Profile/>
+//   }
+//   return (
+
+//     <React.Fragment >
+
+// <div className="div  m-12">
+//   <h1><button className="bg-blue-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded" 
+//     onClick={ ()=> setState('About')} > About </button></h1>
+//   <br />
+//   <h1><button className='saleel bg-blue-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded '  onClick={()=> setState('Profile')} > Profile </button></h1>
+// </div>
+
+// {components}
+
+//     </React.Fragment>
+
+// )
+
+             
 
 
 
@@ -88,12 +157,6 @@ function App() {
 
 // routing about or profile 
  //---------------------------
-
-
-
-
-
-
 
 
 
@@ -159,9 +222,9 @@ function App() {
 
     // </div>
   
-}
 
-export default App;
+
+
 
 
 
