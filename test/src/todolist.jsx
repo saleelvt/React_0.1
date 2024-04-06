@@ -4,8 +4,8 @@ import './App.css'
 
 function App() {
 
-    const [toDo, setTodo] = useState('')
-  const [todos,settodos]=useState([])
+const [toDo, setTodo] = useState('')
+const [todos,settodos]=useState([])
     
 
 

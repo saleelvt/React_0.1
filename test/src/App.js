@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState ,} from 'react'
+
   
 import About from './components/about';  
 import Profile from './components/profile';
@@ -10,21 +11,17 @@ import Todolist from './todolist'
 import './App.css'
 import Child from './components/child';
 import Form from './components/form';
+
 function App () {
  
-  const [dataFrom,setDataFrom]= useState('')
-const handleChildData=(ata)=> {
-      setDataFrom(ata) 
-
-}
 return (
   <div>
-    <h1>This data from child: {dataFrom} </h1>
 
-    <Child sendDataToParent={handleChildData}/>
+  
+
+ <Form/>
 
 
-    {/* < Form/> */}
   </div>
 )
 

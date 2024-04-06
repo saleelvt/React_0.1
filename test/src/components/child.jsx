@@ -1,20 +1,18 @@
 
-
-
 import React from 'react'
-
 
 function Child({sendDataToParent}) {
    let  data='Saleel is a good boy '
 
-   let sendDataToParentHandler=()=>{
-
+   let handleDataFromParent=()=>{
      sendDataToParent(data)
    }
    
   return (
     <div>
-      <button onClick={sendDataToParentHandler}>add me</button>
+
+      <button onClick={handleDataFromParent} >add me</button>
+
     </div>
   )
 }
