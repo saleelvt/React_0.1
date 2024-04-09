@@ -11,103 +11,178 @@ import "./App.css";
 import Child from "./components/child";
 import Form from "./components/form";
 import Table from "./components/table";
-
+import Child3 from "./components/child3";
 
 function App() {
-  const [name, setName] = useState("");
-  const [place, setPlace] = useState("");
-  const [age, setAge] = useState("");
-  const [nameVali, setNameVali] = useState(false);
-  const [lastName, setLastName] = useState([]);
-  let handler = () => {
-    setLastName((previous) => {
-      if (name === "") {
-        setNameVali(true);
-        return previous;
-      }
+  const [data, setData] = useState("");
 
-      setLastName((previous) => {
-        return [...lastName,
-          { name, age, place}
-        ];
-      });
-    
-    });
-
-    setName("");
-    setPlace("");
-    setAge("");
+  let handleDataFromChild = (data) => {
+    setData(data);
   };
-
-
-
-  useEffect(() => {
-    console.log(lastName);
-  }, [lastName]);
-
   return (
-    <React.Fragment>
-      <div className=" m-20 p-3  border rounded-sm shadow-md w-56">
-        <div className="p-2 ">
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className=" border rounded-sm shadow-md"
-            placeholder={nameVali ? "Please provide a name" : "Enter Name"}
-            type="text"
-          />
-        </div>
-        <div className="p-2 ">
-          <input
-            value={place}
-            onChange={(e) => setPlace(e.target.value)}
-            className=" border rounded-sm shadow-md"
-            placeholder="Enter Place"
-            type="text"
-          />
-        </div>
-        <div className="p-2">
-          <input
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            className=" border rounded-sm shadow-md"
-            placeholder="Enter Age"
-            type="text"
-          />
-        </div>
-
-        <button onClick={handler} className="ml-20 mt-2">
-          Submit
-        </button>
-      </div>
-
-      <Table data={lastName} />
-    </React.Fragment>
+    <div
+      className=" "
+    >
+      <h1>thsi data form child : {data}</h1>
+      <Child3 sendtoParent={handleDataFromChild}/>
+    </div>
   );
-
-  // const [data,setdata]=useState(0)
-
-  // const handleDataFromChild=(data)=>{
-  //   setdata(data)
-  // }
-  // <Effect sentToChild={handleDataFromChild}/>
-  // <h1 > Counter : {data}</h1>
-
-  // const [dataFromChild,setDataFromChild]=useState('')
-
-  // const handleDataFromChild=(data)=>{
-  //   setDataFromChild(data)
-  // }
-
-  // return (
-  //   <React.Fragment>
-
-  //   <h1> This data from child :{dataFromChild} </h1>
-
-  //   <Child  sendDataToParent={handleDataFromChild}/>
-
-  //   </React.Fragment>
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function App() {
+//   const [count, setCount] = useState(0);
+//   const [status, setStatus] = useState("");
+//   const [data, setData] = useState("");
+
+//   let inputref=useRef(null)
+
+//   useEffect(()=>{
+
+//   },[])
+
+//   return (
+//     <React.Fragment>
+//       {/* <div className="m-24 bg-gray-400 w-1/4 p-4  ">
+//         <div className=" flex justify-center ">
+//         <button  onClick={()=> setCount(count+1)} className="btn-lg rounded shadow-lg border  px-2 py-1 ">+</button>
+//         <h1>Counter:{count} </h1>
+//         <button onClick={()=> setCount(count >1 ?count-1 : 0)} className="btn-lg rounded shadow-lg border  px-2 py-1 ">-</button>
+//         </div>
+
+//         <button className="btn-lg rounded shadow-lg border  px-2 py-1 m-2 ">Increment </button>
+//         <button className="btn-lg rounded shadow-lg border  px-2 py-1 m-1 ">pause Count</button>
+//         <button className="btn-lg rounded shadow-lg border  px-2 py-1 "> Decrement</button>
+//       </div> */}
+
+//       <div>
+//         <input type="text" ref={inputref} />
+//       </div>
+
+//       <Todolist/>
+//     </React.Fragment>
+//   );
+// }
+
+// function App(params) {
+
+//   const [color,setColor]=useState('black')
+//   return (
+//     <React.Fragment>
+
+//       <h1 style={{color: color, background: "white"}}> saleel</h1>
+// <button onClick={()=> setColor('blue')} className=" bg-blue-600">blue</button>
+// <button onClick={()=> setColor('red')} className=" bg-red-600">red</button>
+// <button onClick={()=> setColor('green')} className=" bg-green-600">green</button>
+//     </React.Fragment>
+//   )
+
+// }
+
+// function App() {
+//   const [name, setName] = useState("");
+//   const [place, setPlace] = useState("");
+//   const [age, setAge] = useState("");
+//   const [nameVali, setNameVali] = useState(false);
+
+//   const [lastName, setLastName] = useState([]);
+//   let handler = () => {
+//     setLastName((previous) => {
+//       if (name === "") {
+//         setNameVali(true);
+//         return previous;
+//       }
+
+//       setLastName((previous) => {
+//         return [...lastName,
+//           { name, age, place}
+//         ];
+//       });
+
+//     });
+
+//     setName("");
+//     setPlace("");
+//     setAge("");
+//   };
+
+//   useEffect(() => {
+//     console.log(lastName);
+//   }, [lastName]);
+
+//   return (
+//     <React.Fragment>
+//       <div className=" m-20 p-3  border rounded-sm shadow-md w-56">
+//         <div className="p-2 ">
+//           <input
+//             value={name}
+//             onChange={(e) => setName(e.target.value)}
+//             className=" border rounded-sm shadow-md"
+//             placeholder={nameVali ? "Please provide a name" : "Enter Name"}
+//             type="text"
+//           />
+//         </div>
+//         <div className="p-2 ">
+//           <input
+//             value={place}
+//             onChange={(e) => setPlace(e.target.value)}
+//             className=" border rounded-sm shadow-md"
+//             placeholder="Enter Place"
+//             type="text"
+//           />
+//         </div>
+//         <div className="p-2">
+//           <input
+//             value={age}
+//             onChange={(e) => setAge(e.target.value)}
+//             className=" border rounded-sm shadow-md"
+//             placeholder="Enter Age"
+//             type="text"
+//           />
+//         </div>
+
+//         <button onClick={handler} className="ml-20 mt-2">
+//           Submit
+//         </button>
+//       </div>
+
+//       <Table data={lastName} />
+//     </React.Fragment>
+//   );
+
+// const [data,setdata]=useState(0)
+
+// const handleDataFromChild=(data)=>{
+//   setdata(data)
+// }
+// <Effect sentToChild={handleDataFromChild}/>
+// <h1 > Counter : {data}</h1>
+
+// const [dataFromChild,setDataFromChild]=useState('')
+
+// const handleDataFromChild=(data)=>{
+//   setDataFromChild(data)
+// }
+
+// return (
+//   <React.Fragment>
+
+//   <h1> This data from child :{dataFromChild} </h1>
+
+//   <Child  sendDataToParent={handleDataFromChild}/>
+
+//   </React.Fragment>
 
 export default App;
 
