@@ -1,48 +1,97 @@
-import React, { useEffect, useState ,} from 'react'
+import React, { useEffect, useState, useRef } from "react";
 
-  
-import About from './components/about';  
-import Profile from './components/profile';
-import Header from './components/Header';
-
-
-// import Like from './components/like' 
-import Todolist from './todolist'   
-import './App.css'
-import Child from './components/child';
-import Form from './components/form';
-
-function App () {
- 
-return (
-  <div>
-
-  
-
- <Form/>
+import About from "./components/about";
+import Profile from "./components/profile";
+import Header from "./components/Header";
+import Child2 from "./components/Child2";
+import Effect from "./components/effect";
+// import Like from './components/like'
+import Todolist from "./todolist";
+import "./App.css";
+import Child from "./components/child";
+import Form from "./components/form";
+import Table from "./components/table";
 
 
-  </div>
-)
+function App() {
+  const [name, setName] = useState("");
+  const [place, setPlace] = useState("");
+  const [age, setAge] = useState("");
+  const [nameVali, setNameVali] = useState(false);
+  const [lastName, setLastName] = useState([]);
+  let handler = () => {
+    setLastName((previous) => {
+      if (name === "") {
+        setNameVali(true);
+        return previous;
+      }
 
+      setLastName((previous) => {
+        return [...lastName,
+          { name, age, place}
+        ];
+      });
+    
+    });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    setName("");
+    setPlace("");
+    setAge("");
+  };
 
 
 
+  useEffect(() => {
+    console.log(lastName);
+  }, [lastName]);
+
+  return (
+    <React.Fragment>
+      <div className=" m-20 p-3  border rounded-sm shadow-md w-56">
+        <div className="p-2 ">
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className=" border rounded-sm shadow-md"
+            placeholder={nameVali ? "Please provide a name" : "Enter Name"}
+            type="text"
+          />
+        </div>
+        <div className="p-2 ">
+          <input
+            value={place}
+            onChange={(e) => setPlace(e.target.value)}
+            className=" border rounded-sm shadow-md"
+            placeholder="Enter Place"
+            type="text"
+          />
+        </div>
+        <div className="p-2">
+          <input
+            value={age}
+            onChange={(e) => setAge(e.target.value)}
+            className=" border rounded-sm shadow-md"
+            placeholder="Enter Age"
+            type="text"
+          />
+        </div>
+
+        <button onClick={handler} className="ml-20 mt-2">
+          Submit
+        </button>
+      </div>
+
+      <Table data={lastName} />
+    </React.Fragment>
+  );
+
+  // const [data,setdata]=useState(0)
+
+  // const handleDataFromChild=(data)=>{
+  //   setdata(data)
+  // }
+  // <Effect sentToChild={handleDataFromChild}/>
+  // <h1 > Counter : {data}</h1>
 
   // const [dataFromChild,setDataFromChild]=useState('')
 
@@ -57,21 +106,10 @@ return (
 
   //   <Child  sendDataToParent={handleDataFromChild}/>
 
-
   //   </React.Fragment>
-  
-
 }
 
-
 export default App;
-
-
-
-
-
-
-
 
 /* <div className="App">
 
@@ -95,14 +133,11 @@ export default App;
 
 </div> */
 
-
-
-// routing with about and profitl,.e 
-
+// routing with about and profitl,.e
 
 // function App() {
 //   const [state,setState]=useState('')
-  
+
 //   let components
 //   if(state==='About'){
 //     components= <About/>
@@ -115,7 +150,7 @@ export default App;
 //     <React.Fragment >
 
 // <div className="div  m-12">
-//   <h1><button className="bg-blue-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded" 
+//   <h1><button className="bg-blue-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded"
 //     onClick={ ()=> setState('About')} > About </button></h1>
 //   <br />
 //   <h1><button className='saleel bg-blue-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded '  onClick={()=> setState('Profile')} > Profile </button></h1>
@@ -127,126 +162,61 @@ export default App;
 
 // )
 
-             
+// routing about or profile
+//---------------------------
 
+// const [count, setCount] = useState(0)
+// ,() => {
 
+// const localVal = localStorage.getItem("SaleelLocal");
+// if (localVal) {
+//   return JSON.parse(localVal);
+// }
+// return 0;
+// });
 
+// useEffect(() => {
+// console.log(count);
+// }, [count]);
 
+// const [name, setName] = useState("Gouse")
+//   localStorage.setItem("SaleelLocal", JSON.stringify(count));
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// routing about or profile 
- //---------------------------
-
-
-
-
-
-
-  // const [count, setCount] = useState(0)
-  // ,() => {
-    
-
-    // const localVal = localStorage.getItem("SaleelLocal");
-    // if (localVal) {
-    //   return JSON.parse(localVal);
-    // }
-    // return 0;
-  // });
-  
-  // useEffect(() => {
-    // console.log(count);
-  // }, [count]);
-
-
-
-  // const [name, setName] = useState("Gouse")
-  //   localStorage.setItem("SaleelLocal", JSON.stringify(count));
-
-
-  
 //   let obj =[
 //     {name: 'saleel',age:21,place : 'valanchery' },
 //     {name: 'ijas',age:22,place : 'kannur' },
 //     {name: 'sreejith',age:35,place : 'mavoor' },
 
-// ] 
- 
+// ]
 
-    // <div className="bg-gray-100 w-full shadow-lg h-56 p-6 rounded-lg flex justify-center sm:w-2/3 md:w-1/2 lg:w-1/3 mx-auto  m-24 flex justify-center  p-4  border-4 " >
-    //   <div className="bg-yellow-100 w-full text-lg shadow-lg sm:w-1/2 p-8   rounded-sm   pb-24 justify-center items-center  border-4 " >
+// <div className="bg-gray-100 w-full shadow-lg h-56 p-6 rounded-lg flex justify-center sm:w-2/3 md:w-1/2 lg:w-1/3 mx-auto  m-24 flex justify-center  p-4  border-4 " >
+//   <div className="bg-yellow-100 w-full text-lg shadow-lg sm:w-1/2 p-8   rounded-sm   pb-24 justify-center items-center  border-4 " >
 
-    //   <Like/>
+//   <Like/>
 
-    //     < button  onClick={() => {setCount(count + 1)
-    //     console.log(count);  
-    //   }
-    //     } className='bg-gray-400 shadow-md text-sm  rounded-md border-2 px-3 py-1 mb-4' >
-    //       add</button>
+//     < button  onClick={() => {setCount(count + 1)
+//     console.log(count);
+//   }
+//     } className='bg-gray-400 shadow-md text-sm  rounded-md border-2 px-3 py-1 mb-4' >
+//       add</button>
 
-    //     <div className="div">
-          
-    //       {
-    //         obj.map((obj,index)=>
+//     <div className="div">
 
-    //             (
-    //               <Counter key={index} {...obj} />
-             
-    //             )
-    //         )
-    //       }
-  
-    //     </div>
+//       {
+//         obj.map((obj,index)=>
 
-    //   </div>
+//             (
+//               <Counter key={index} {...obj} />
 
-    // </div>
-  
+//             )
+//         )
+//       }
 
+//     </div>
 
+//   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// </div>
 
 // import { useEffect, useState } from 'react'
 // import './App.css'
@@ -268,7 +238,6 @@ export default App;
 
 //   }, [count]);
 
-  
 //   return (
 //     <div className="bg-gray-100 w-1/3 shadow-lg h-56 p-6 rounded-lg flex justify-center sm:w-2/3 md:w-1/2 lg:w-1/3  m-24  p-4  border-4 " >
 //       <div className="bg-yellow-100 w-1/2 text-lg shadow-lg  rounded-sm   pb-24 flex justify-center items-center  border-4 " >
@@ -277,12 +246,9 @@ export default App;
 //         </button>
 //         <h5> Counter: {count}</h5>
 //       </div>
-  
 
 //     </div>
 //   )
 // }
 
 // export default App;
-
-

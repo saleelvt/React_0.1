@@ -1,18 +1,24 @@
-import React from "react";
-import { useState } from "react";
+import React, { useEffect } from "react";
+import { useState, useRef } from "react";
 import './App.css'
 
 function App() {
 
-const [toDo, setTodo] = useState('')
-const [todos,settodos]=useState([])
-    
+    const [toDo, setTodo] = useState('')
+    const [todos, settodos] = useState([])
 
+    const inputRef = useRef(null)
+    useEffect(()=>{
+        inputRef.current.focus()
+        inputRef.current.style.color='red'
+       
+    })
+    
 
     return (
 
         <div className="app">
-  
+
 
             <div className="mainHeading">
                 <h1>ToDo List</h1>
@@ -23,29 +29,39 @@ const [todos,settodos]=useState([])
             </div>
             <div className="input">
 
-                <input value={toDo} onChange={(e)=> setTodo(e.target.value) } type="text" placeholder=" Add item..." />
-                <i onClick={() =>{
-settodos([...todos, toDo])
+                <input value={toDo} onChange={(e)=>setTodo(e.target.value)} ref={inputRef}  type="text" placeholder=" Add item..." />
 
+                <i onClick={() => {
+                    
+                    settodos([...todos, toDo])
 
-                } } className="fas fa-plus"></i>
+                }} className="fas fa-plus"></i>
 
             </div>
             <div className="todos">
 
-              { todos.map((item)=>{
-                return(
-                    <div className="todo">
-                    <div className="left">
-                        <input  type="checkbox"  name="" id="" />
-                        <p>{item}</p>
-                    </div>
-                    <div className="right">
-                        <i className="fas fa-times"></i>
-                    </div>
-                </div>
-                )
-              })}
+                {todos.map((item) => {
+                    return (
+                        <div className="todo">
+                            <div className="left">
+                                <input  type="checkbox" name="" id="" />
+                                <p >{item}</p>
+                            </div>
+                            <div className="right">
+                                <i className="fas fa-times"></i>
+                            </div>
+
+                          
+
+                            <div className="">
+                               
+                                <p   style={{color:'blue'}} >lenght is : {item.length}</p>
+                            </div>
+                       
+                           
+                        </div>
+                    )
+                })}
 
             </div>
         </div>
