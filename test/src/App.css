@@ -46,14 +46,19 @@
 } */
 
 
+
 * {
+  /* background-color: rgb(85, 118, 65); */
   margin: 0;
   padding: 0;
+} 
+
+body{
+  background-color: rgb(0, 0, 0);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-body {
-  background-color: #cda370;
-}
+
 
 .app {
   position: absolute;
@@ -69,20 +74,21 @@ body {
 
 .app h1,
 h2 {
-  color: white;
+  color: rgb(0, 0, 0);
 }
 
 .app .input {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(222, 141, 36);
 }
 
 .app .input {
   margin-top: 0.8em;
   width: 20em;
   height: 2em;
-  background-color: white;
+  background-color: rgb(57, 52, 52);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -101,7 +107,7 @@ h2 {
   cursor: pointer;
   font-size: larger;
   font-weight: 900;
-  color: grey;
+  color: rgb(255, 0, 0);
   margin-right: 5px;
 }
 .app .todos {
@@ -114,7 +120,7 @@ h2 {
   margin-top: 0.8em;
   width: 20em;
   height: 2em;
-  background-color: white;
+  background-color: rgb(0, 0, 0);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -132,5 +138,5 @@ h2 {
   font-size: medium;
   font-weight: 700;
   font-style: normal;
-  color: grey;
+  color: rgb(242, 255, 0);
 }

@@ -12,26 +12,22 @@ function App() {
   const [edit, setEdit] = useState(false);
   const [editItem, setEditItem] = useState(false);
   const [editID, setEditID] = useState(false);
-//   const names = ["Saleel", "Gouse", "Sreeji", "Simcy", "Mariyam"];
-
-
+    const names = ["Saleel", "Gouse", "Sreeji", "Simcy", "Mariyam"];
 
   const inputRef = useRef(null);
   useEffect(() => {
     console.log(todos);
-    
+
     localStorage.setItem("todoList", JSON.stringify(todos));
   }, [todos]);
 
   let handleTodo = () => {
-
-if(todos.include(toDo)){
-
-    settodos(toDo)
-}else{
-    alert('this To do alredy adde')
-}
-
+    if (todos.include(toDo)) {
+      settodos(toDo);
+    } else {
+      alert("this To do alredy adde");
+    }
+    
     if (edit) {
       settodos((prevTodo) => {
         return prevTodo.map((todo) => {
@@ -41,7 +37,7 @@ if(todos.include(toDo)){
           return todo;
         });
       });
-      
+
       setEdit(false);
       setEditID(null);
       setEditItem("");
@@ -62,16 +58,14 @@ if(todos.include(toDo)){
   };
 
   function handleCheck(id, completed) {
-
-
-    // settodos((current) => {
-    //   return current.map((todo) => {
-    //     if (todo.id === id) {
-    //       return { ...todo, completed };
-    //     }
-    //     return todo;
-    //   });
-    // });
+    settodos((current) => {
+      return current.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, completed };
+        }
+        return todo;
+      });
+    }); 
   }
 
   const editTodo = (id, item) => {

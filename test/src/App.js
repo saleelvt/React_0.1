@@ -1,8 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, createContext, Component } from "react";
 
 import About from "./components/about";
 import Profile from "./components/profile";
-import Header from "./components/Header";
 import Child2 from "./components/Child2";
 import Effect from "./components/effect";
 // import Like from './components/like'
@@ -12,21 +11,38 @@ import Child from "./components/child";
 import Form from "./components/form";
 import Table from "./components/table";
 import Child3 from "./components/child3";
+import NavBar from "./Netflix_cmt/NavBar/NavBar";
+import Header from "./Netflix_cmt/header/header"
+import MultiColor from "./components/multiColor";
+import Buttons from "./components/Buttons";
+import Context from "./components/context";
+import Just from "./components/just";
+import Banner from './Netflix_cmt/Banner/Banner'
+import RowPost from './Netflix_cmt/RowPost/RowPost'
+import Axios from './components/axios'
+ 
 
-function App() {
-  const [data, setData] = useState("");
+export const MyContext=createContext()
+function App(){
+  const name='saleel'
+const age ='21'
+const place ='valanchery '
 
-  let handleDataFromChild = (data) => {
-    setData(data);
-  };
-  return (
-    <div
-      className=" "
-    >
-      <h1>thsi data form child : {data}</h1>
-      <Child3 sendtoParent={handleDataFromChild}/>
-    </div>
-  );
+  return(
+    
+    <React.Fragment>
+
+{/*    
+    <NavBar/>
+    <Header/>
+    <Banner/>
+    <RowPost/> */}
+
+
+<Axios/>
+
+    </React.Fragment>
+  )
 }
 
 
@@ -37,9 +53,126 @@ function App() {
 
 
 
+// useContext  sample method 
+
+
+// function App() {
+
+// const [name,setName] = useState("Saleel");
+// const age='21'
+// return (
+//   <React.Fragment>
+
+
+//     <MyContext.Provider value={{ name,setName,age }}>
+
+
+//       <MultiColor />
+
+//        <Buttons />
+//     </MyContext.Provider>
+  
+  
+  
+//   </React.Fragment>
+// );
+
+// }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const [name ,setName]=useState('')
+// const [place ,setPlace]=useState('')
+// const [age ,setAge]=useState('')
+// const [status1,setStatus1]=useState(false)
+// const [status2,setStatus2]=useState(false)
+// const [status3,setStatus3]=useState(false)
+
+// const [details , setDetails]=useState([])
+
+// const nameHandle=(element)=>{
+// setName(element.target.value)
+// }
+// const placeHandle=(element)=>{
+// setPlace(element.target.value)
+// }
+// const ageHandle=(element)=>{
+// setAge(element.target.value)
+// }
+
+// const handledata=()=>{
+
+//   if (name=='') {
+//     setStatus1(true)
+//   }
+//   if (place=='') {
+//     setStatus2(true)
+//   }
+//   if (age=='') {
+//     setStatus3(true)
+//   }
+
+//   setDetails([...details,{name,age,place}])
+
+//   setAge('')
+//   setName('')
+//   setPlace('')
+// }
+// useEffect(()=>{
+
+//   console.log(details);
+
+// },[details])
+
+// console.log(name,age,place);
+
+{
+  /* <div className=" m-20 p-3  border rounded-sm shadow-md w-56">
+        <div className="p-2 ">
+          <input value={name} onChange={nameHandle} className=" border rounded-sm shadow-md" type="text" placeholder={status1 ? "enter valied name" :"Enter you name "  } />
+        </div>
+        <div className="p-2 ">
+          <input
+            value={place} onChange={placeHandle} className=" border rounded-sm shadow-md" placeholder={status2?'Enter valid place ':'Enter your place'}
+            type="text"
+          />
+        </div>
+        <div className="p-2">
+          <input
+            value={age} onChange={ageHandle} className=" border rounded-sm shadow-md" placeholder={status3?'enter valid age ':'enter your age'}
+     
+            type="text"
+          />
+        </div>
+
+        <button onClick={handledata } className="ml-20 mt-2">Submit</button>
+      </div>
+
+      <Table data={details}  /> */
+}
 
 // function App() {
 //   const [count, setCount] = useState(0);
@@ -263,35 +396,6 @@ export default App;
 //     {name: 'sreejith',age:35,place : 'mavoor' },
 
 // ]
-
-// <div className="bg-gray-100 w-full shadow-lg h-56 p-6 rounded-lg flex justify-center sm:w-2/3 md:w-1/2 lg:w-1/3 mx-auto  m-24 flex justify-center  p-4  border-4 " >
-//   <div className="bg-yellow-100 w-full text-lg shadow-lg sm:w-1/2 p-8   rounded-sm   pb-24 justify-center items-center  border-4 " >
-
-//   <Like/>
-
-//     < button  onClick={() => {setCount(count + 1)
-//     console.log(count);
-//   }
-//     } className='bg-gray-400 shadow-md text-sm  rounded-md border-2 px-3 py-1 mb-4' >
-//       add</button>
-
-//     <div className="div">
-
-//       {
-//         obj.map((obj,index)=>
-
-//             (
-//               <Counter key={index} {...obj} />
-
-//             )
-//         )
-//       }
-
-//     </div>
-
-//   </div>
-
-// </div>
 
 // import { useEffect, useState } from 'react'
 // import './App.css'

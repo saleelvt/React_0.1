@@ -1,0 +1,23 @@
+.row{
+    margin-left: 20px;
+    color: aliceblue;
+
+}
+.posters{
+
+    display: flex;
+    
+    padding-left: 55px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    box-shadow: 0 1px 3px 0 rgba(103, 50, 50, 0.1);
+}
+.poster{
+    margin: 25px;
+    height: 250px;
+    width: 280px;
+    border-radius: 10px;
+}
+.posters::-webkit-scrollbar{
+    display: none;
+}
