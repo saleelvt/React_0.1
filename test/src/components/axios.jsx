@@ -5,6 +5,7 @@ function Axios() {
 
     const [state,setState]=useState([])
   return (
+    
     <div className=" bg-gray-700">
       <div>
         <button
@@ -29,6 +30,10 @@ function Axios() {
       </div>
 
       <div className="">
+        {
+<h1>Saele {state ? state[0] :''}</h1>
+
+        }
       {
         state.map((x,index)=>{
             return(

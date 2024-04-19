@@ -4,7 +4,8 @@ function Just(props) {
     console.log('render just info');
   return (
     <div>
-      <h1>{props.love}</h1>
+      <h1> saleel {props.age}</h1>
+      
     </div>
   )
 }

@@ -15,7 +15,6 @@ function About() {
   return (
 
 <div>
-  
 <h1> This is my  About Section {datas} </h1>
 <button onClick={handleData}> click</button>
 </div>

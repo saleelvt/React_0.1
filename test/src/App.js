@@ -20,26 +20,37 @@ import Just from "./components/just";
 import Banner from './Netflix_cmt/Banner/Banner'
 import RowPost from './Netflix_cmt/RowPost/RowPost'
 import Axios from './components/axios'
+import Reducer from "./components/Reducer";
  
 
 export const MyContext=createContext()
 function App(){
   const name='saleel'
-const age ='21'
+const age ='22'
 const place ='valanchery '
 
   return(
     
     <React.Fragment>
 
-{/*    
-    <NavBar/>
+   
+    {/* <NavBar/>
     <Header/>
     <Banner/>
     <RowPost/> */}
 
+<Reducer/>
 
-<Axios/>
+
+
+
+
+
+{/* <Profile/> */}
+{/* <About/> */}
+{/* <Just age={age}/> */}
+
+{/* <Axios/> */}
 
     </React.Fragment>
   )

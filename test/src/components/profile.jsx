@@ -1,5 +1,5 @@
 import React from "react";
-
+import Just from "./just";
 function Profile (props){
     const data ='saleena from profile she from thek mala dfdfddd  '
     console.log(data);
@@ -7,7 +7,9 @@ function Profile (props){
   
   <div>
     
-  <h1> This is my  Profile Section {props.data} </h1>
+  <h1> {props.data}ghhj dfdfdfdfdfffffdfdff</h1>
+  <Just/>
+ 
   </div>
   
       )
