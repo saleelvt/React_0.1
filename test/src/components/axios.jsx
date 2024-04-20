@@ -31,7 +31,7 @@ function Axios() {
 
       <div className="">
         {
-<h1>Saele {state ? state[0] :''}</h1>
+<h1>Hay saleel this is your data  {state ? state :''}</h1>
 
         }
       {

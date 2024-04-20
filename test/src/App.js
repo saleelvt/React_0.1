@@ -25,9 +25,14 @@ import Reducer from "./components/Reducer";
 
 export const MyContext=createContext()
 function App(){
-  const name='saleel'
+  
 const age ='22'
-const place ='valanchery '
+
+
+const obj={
+  name:'saleel'
+}
+const place ='valanchery ' 
 
   return(
     
@@ -39,18 +44,10 @@ const place ='valanchery '
     <Banner/>
     <RowPost/> */}
 
-<Reducer/>
+    <Axios/>
 
 
 
-
-
-
-{/* <Profile/> */}
-{/* <About/> */}
-{/* <Just age={age}/> */}
-
-{/* <Axios/> */}
 
     </React.Fragment>
   )
